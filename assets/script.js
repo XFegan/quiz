@@ -9,7 +9,7 @@ var currentQuestionIndex = 0;
 var endGameEl = document.getElementById("endGame");
 var score;
 var finalScoreEl = document.getElementById("finalScore");
-var answerPopUpEl = document.getElementById("ansPopup");
+var answerPopUpEl = document.getElementById("answerPopup");
 var timerEl = document.getElementById("countdown");
 var timeUpEl = document.getElementById("timeUp");
 var playerName = document.getElementById("nameOfPlayer");
@@ -19,7 +19,6 @@ var scoreDataEl = document.getElementById("scoreData");
 var goBackButtonEl = document.getElementById("returnBtn");
 var clearScoreButtonEl = document.getElementById("clear-score");
 
-help
 
   var questions = [
       { 
@@ -109,6 +108,7 @@ var startGame = function () {
 };
 
 //Funtion to create answer button on each new question.
+
 var createAnswerBtn = function () {
   answerButtonEl.innerHTML = "";
   for (var i = 0; i < questions[currentQuestionIndex].answers.length; i++) {
@@ -125,6 +125,7 @@ var createAnswerBtn = function () {
 
 //Function to show the next question
 var showNextQuestion = function () {
+  console.log("got into the showNextQuestion function");
   if (this.getAttribute("id") === "true") {
     answerPopUpEl.classList.remove("hide");
     answerPopUpEl.textContent = "Correct! ✔️";
