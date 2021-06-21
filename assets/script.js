@@ -19,7 +19,7 @@ var scoreDataEl = document.getElementById("scoreData");
 var goBackButtonEl = document.getElementById("returnBtn");
 var clearScoreButtonEl = document.getElementById("clear-score");
 
-
+help
 
   var questions = [
       { 
