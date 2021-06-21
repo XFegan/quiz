@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>True or False Game</title>
+  <title>Java Script Quiz Game</title>
   <style>
     .hide {
       display: none;
@@ -16,40 +16,80 @@
 
 
 <body>
+  <header>
+    <a href="./highscore.html" id="scoreLink" class=""> View High Scores</a>
+    <div id="timerContainer" class="timer">
+      <span id="countdown">⏰</span>
+      <p id="timeUp"></p>
+    </div>
+  </header>
 
-  <div class="highscores">
+  <!--<div class="highscores">
     <a href="./highscore.html">View highscore</a>
 
   </div>
-
+-->
 
 
  Time Remaining: <spanz id="TimeLeftSpan"></spanz>
   <div id="intro">
     <h1>Quiz game</h1>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi iste neque odit ducimus molestiae deleniti.
-    Perferendis expedita rem quam quidem possimus quibusdam, dicta dignissimos consequatur error placeat facilis maiores
-    repellendus.
-    <button id="startBtn">start</button>
+    <p>
+      Try to asnwer the following code-related questions within the time
+      limit. <br/>
+      Keep in mind that incorrect answers will penalize your socre/time by
+      ten seconds
+    </p>
+    <button id="startBtn" >Start Quiz</button>
   </div>
 
-  <div id="questions" class="hide">
-    <h1 id="title"></h1>
-     <ul>
-       <li>
-         <button id="choice1"></button>
-         <button id="choice2"></button>
-         <button id="choice3"></button>
-         <button id="choice4"></button>
-       </li>
-     </ul>
+  <div id="container" class="hide">
+    <div id="questionContainer">    
+      <div id="question">Question</div>
+       <div id="answerBtn" class="btnGrid">
+         <button class="btn">Answer 1</button>
+         <button class="btn">Answer 2</button>
+         <button class="btn">Answer 3</button>
+         <button class="btn">Answer 4</button>
+       </div>
+       <hr />
+      <div id="answerPopup" class="hide">
+        <h2>Correct!</h2>
+       </div>
+      </div>
+      <div class="controls">
+        <button id="nextBtn" class="nextBtnBtn hide">Next</button>
+      </div>
+  </div>
+
+  <div id="endGame" class="hide">
+<h2>The Quiz Has Ended</h2>
+<h3 id="finalScore" class="hide">This is your final Score</h3>
+<form id="scoreForm" class="scoreData">
+  <label for="name">Enter Name:</label>
+  <input
+    type="text"
+    name="nameOfPlayer"
+    id="nameOfPlayer"
+    placeholder="Your Name"
+  />
+  <button id="submitBtn" class="submit">Submit</button>
+</form>
+  </div>
+
+  <div id="playerStats" class="hide">
+    <h2>Your High Score!</h2>
+    <span id="scoreData"></span>
+    <br />
+    <br />
+    <button id="returnBtn">Restart</button>
   </div>
 
 
- <div id="initialDiv" class="hide"> 
+<!--<div id="initialDiv" class="hide"> 
    <input type="text" id="initial">
-   <button id="submit">Submit</button>
- </div>
+   <button id="submitBtn">Submit</button>
+ </div>-->  
 
 
   <!-- <script src="./assets/js/script.js"></script> -->
