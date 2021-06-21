@@ -17,8 +17,11 @@ var submitButtonEl = document.getElementById("submitBtn");
 var playerStatsEl = document.getElementById("playerStats");
 var scoreDataEl = document.getElementById("scoreData");
 var goBackButtonEl = document.getElementById("returnBtn");
-var clearScoreButtonEl = document.getElementById("clear-score");
-
+var clearScoreButtonEl = document.getElementById("clearScore");
+var scoreDisplayEl = document.getElementById("scoreDisplay");
+var deleteScoreEl = document.getElementById("deleteScore");
+var backBtnEL = document.getElementById("backBtn");
+var scoreLink = document.getElementById("scoreLink");
 
   var questions = [
       { 
@@ -96,7 +99,6 @@ var clearScoreButtonEl = document.getElementById("clear-score");
       },
     ];
 
-
 //Funtion to start game
 var startGame = function () {
   startButtonEL.classList.add("hide");
@@ -108,7 +110,6 @@ var startGame = function () {
 };
 
 //Funtion to create answer button on each new question.
-
 var createAnswerBtn = function () {
   answerButtonEl.innerHTML = "";
   for (var i = 0; i < questions[currentQuestionIndex].answers.length; i++) {
@@ -125,7 +126,6 @@ var createAnswerBtn = function () {
 
 //Function to show the next question
 var showNextQuestion = function () {
-  console.log("got into the showNextQuestion function");
   if (this.getAttribute("id") === "true") {
     answerPopUpEl.classList.remove("hide");
     answerPopUpEl.textContent = "Correct! ✔️";
@@ -134,9 +134,8 @@ var showNextQuestion = function () {
     answerPopUpEl.textContent = "Wrong! ❌";
     timeLeft = timeLeft - 15;
   }
-  //Increment question index
+  //question index
   currentQuestionIndex++;
-  //Statement to check if we are on the last question
   if (currentQuestionIndex < questions.length) {
     questionEl.textContent = questions[currentQuestionIndex].question;
     createAnswerBtn();
@@ -169,7 +168,6 @@ var countDown = function () {
 var endGame = function () {
   score = timeLeft;
   clearInterval(timeInterval);
-  console.log(timeLeft);
   ContainerEl.classList.add("hide");
   endGameEl.classList.remove("hide");
   finalScoreEl.innerHTML = "Your Final Score is " + score;
@@ -189,7 +187,7 @@ var showHighScore = function () {
 
 var saveData = function (event) {
   event.preventDefault();
-  var playerName = document.getElementById("name-of-player").value;
+  var playerName = document.getElementById("nameOfPlayer").value;
   var highScore= JSON.parse(localStorage.getItem("highscore")) || [];
   var newScore = {
     playerName: playerName,
@@ -201,7 +199,6 @@ var saveData = function (event) {
   } else {
     // Save email and password to localStorage using `setItem()`
     highScore.push(newScore);
-    console.log(highScore)
     localStorage.setItem("highscore", JSON.stringify(highScore))
      localStorage.setItem("playerName", playerName);
     localStorage.setItem("score", score);
@@ -218,3 +215,31 @@ var reStart = function () {
 submitButtonEl.addEventListener("click", saveData);
 startButtonEL.addEventListener("click", startGame);
 goBackButtonEl.addEventListener("click", reStart);
+
+//Highscore, return and local storage
+var removeScore = function () {
+  localStorage.clear();
+};
+
+deleteScoreEl.addEventListener("click", deleteScore);
+
+var getData = function () {
+
+  var playerStats = JSON.parse(localStorage.getItem("highscore"));
+
+  if (playerStat === null) {
+    return;
+  }
+  for (var i = 0; playerStats.length; i++) {
+    playerStats[i];
+    var scoreEl = document.createElement("p");
+    scoreEl.textContent = playerStats[i].playerName + ": " + playerStats[i].score;
+    scoreDisplayEl.append(scoreEl);
+  }
+};
+getData();
+
+var reset = function () {
+  location.reload();
+};
+backBtnEL.addEventListener("click", reset);
