@@ -29,8 +29,7 @@ var clearScoreButtonEl = document.getElementById("clear-score");
           { text: "Varying randomly", correct: false },
           { text: "Statements that make you miss the prom", correct: false },
           { text: "None of the above", correct: false },
-        ],
-        
+        ], 
       },
       { 
         question: 'String values must be enclosed within ________ when being assigned to variables.', 
@@ -87,7 +86,6 @@ var clearScoreButtonEl = document.getElementById("clear-score");
           { text: "Booleans", correct: true },
         ],
       },
-
       {
         question: "  The condition in an if / else statement is enclosed with ______.:",
         answers: [
@@ -97,7 +95,6 @@ var clearScoreButtonEl = document.getElementById("clear-score");
           { text: "square brackets", correct: false },
         ],
       },
-
     ];
 
 
